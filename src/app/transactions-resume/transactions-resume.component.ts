@@ -12,4 +12,8 @@ export class TransactionsResumeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  teste() {
+    alert('djdijpods')
+  }
+
 }
