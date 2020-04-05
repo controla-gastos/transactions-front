@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlTransactions: 'http://localhost:5000/controlagasto-da53a/us-central1' 
+  urlTransactions: 'https://us-central1-controlagasto-da53a.cloudfunctions.net'
 };
 
 /*
