@@ -9,10 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 import { ExtractTransactionsRoutingModule } from './extract-transactions-routing.module';
 import { ExtractTransactionsComponent } from './extract-transactions.component';
-
+import { extractTransactionsReducer } from './reducers/extract-transactions.reducer';
+import { ExtractTransactionsEffect } from './reducers/extract-transactions.effect';
 
 @NgModule({
   declarations: [ExtractTransactionsComponent],
@@ -27,7 +30,10 @@ import { ExtractTransactionsComponent } from './extract-transactions.component';
     FormsModule,
     ReactiveFormsModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    StoreModule.forFeature('extractTransactions',
+    { extractTransactionsFeature: extractTransactionsReducer }),
+    EffectsModule.forFeature([ExtractTransactionsEffect])
   ]
 })
 export class ExtractTransactionsModule { }

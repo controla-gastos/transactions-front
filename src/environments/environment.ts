@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlTransactions: 'http://localhost:5000/controlagasto-da53a/us-central1' 
 };
 
 /*

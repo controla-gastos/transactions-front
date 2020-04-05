@@ -2,71 +2,19 @@
     <mat-card-title>Últimas transações</mat-card-title>
 
     <mat-card-content fxLayout="column" fxLayoutGap="25px">
-        <div fxLayout="column" fxLayoutGap="5px">
+        <div fxLayout="column" fxLayoutGap="1005px">
             <mat-list>
-                <mat-list-item>
+                <mat-list-item style="margin-top: 12px" *ngFor="let trans of $transactions | async" >
                     <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
+                        <div fxLayout='row' fxLayoutAlign="start" fxLayoutGap="5px">
+                            <span class="tag" *ngFor="let tag of trans.tags" >{{tag}}</span>
+                        </div>
+                        <span fxLayout='row' fxLayoutAlign="start">{{trans.description}}</span>
 
                     </div>
                     <div fxFlex fxLayout='column' fxLayoutAlign="end">
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
-                    </div>
-                </mat-list-item>
-                <mat-list-item>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
-
-                    </div>
-                    <div fxFlex fxLayout='column' fxLayoutAlign="end">
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
-                    </div>
-                </mat-list-item>
-                <mat-list-item>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
-
-                    </div>
-                    <div fxFlex fxLayout='column' fxLayoutAlign="end">
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
-                    </div>
-                </mat-list-item>
-                <mat-list-item>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
-
-                    </div>
-                    <div fxFlex fxLayout='column' fxLayoutAlign="end">
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
-                    </div>
-                </mat-list-item>
-                <mat-list-item>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
-
-                    </div>
-                    <div fxFlex fxLayout='column' fxLayoutAlign="end">
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
-                    </div>
-                </mat-list-item>
-                <mat-list-item>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="start">Tag 1 Tag 2</span>
-                        <span fxLayout='row' fxLayoutAlign="start">Fies</span>
-                    </div>
-                    <div fxFlex fxLayout='column'>
-                        <span fxLayout='row' fxLayoutAlign="end">Itau</span>
-                        <span fxLayout='row' fxLayoutAlign="end">89.00</span>
+                        <span fxLayout='row' fxLayoutAlign="end">{{trans.emitter}}</span>
+                        <span fxLayout='row' fxLayoutAlign="end">{{trans.value | currency:'R$'}}</span>
                     </div>
                 </mat-list-item>
             </mat-list>
