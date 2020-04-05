@@ -1,0 +1,66 @@
+<mat-card style="margin: 10px">
+    <mat-card-content fxLayout="column" fxLayoutGap="25px">
+        <form *ngIf="form" [formGroup]="form">
+            <div fxLayout="column" fxLayoutGap="5px">
+                <div fxFlex fxLayout='column'>
+                    <mat-form-field>
+                        <mat-label>Descrição</mat-label>
+                        <input formControlName="description" matInput type="text">
+                        <mat-error *ngIf="isFieldValid('description')">Insira uma descrição</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayout='column'>
+                    <mat-form-field>
+                        <mat-label>Emissor</mat-label>
+                        <input formControlName="emitter" matInput type="text">
+                        <mat-error *ngIf="isFieldValid('emitter')">Insira um emissor</mat-error>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayout='column'>
+                    <mat-form-field>
+                        <mat-label>Valor</mat-label>
+                        <input formControlName="value" matInput type="number">
+                        <mat-error *ngIf="isFieldValid('value')">Insira um valor</mat-error>
+                        <span matPrefix>R$&nbsp;</span>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayout='column'>
+                    <mat-form-field>
+                        <mat-label>Selecione uma data</mat-label>
+                        <input matInput formControlName="date" [matDatepicker]="picker">
+                        <mat-error *ngIf="isFieldValid('date')">Insira uma data</mat-error>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex fxLayout='column'>
+                    <div fxLayout='row' fxLayoutAlign="start" fxLayoutGap="5px">
+                        <mat-form-field>
+                            <mat-label>Adicione uma tag</mat-label>
+                            <input (enter)="addTag();$event.stopPropagation()" [formControl]="tagsControl" matInput
+                                type="text">
+                        </mat-form-field>
+                        <button (click)="addTag()" mat-button>Adicionar Tag</button>
+                    </div>
+                </div>
+                <div fxFlex fxLayout='column'>
+                    <span>Tags Selecionadas:</span>
+                    <div fxLayout='row' fxLayoutAlign="start" fxLayoutGap="5px">
+                        <span  *ngFor="let tag of tags; let i= index" class="tag">{{tag}} 
+                            <span (click)="removeTag(i)">x</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <div>
+            <div fxLayout="row" fxLayoutAlign="end">
+                <button (click)="onSubmit()" mat-button>Salvar</button>
+            </div>
+        </div>
+    </mat-card-actions>
+</mat-card>

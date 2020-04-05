@@ -24,8 +24,4 @@ export class TransactionsResumeComponent implements OnInit {
     this.store.dispatch(getTransactionsResume());
   }
 
-  teste() {
-    alert('djdijpods')
-  }
-
 }

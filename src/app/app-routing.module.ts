@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'transactions/extract', loadChildren: () =>
       import('./extract-transactions/extract-transactions.module').then(m => m.ExtractTransactionsModule)
   },
+  {
+    path: 'transactions/add', loadChildren: () =>
+      import('./add-transaction/add-transaction.module').then(m => m.AddTransactionModule)
+  },
   { path: '**', component: EmptyRouteComponent },
 ];
 
