@@ -27,7 +27,7 @@
     "@ngrx/effects": "^9.0.0",
     "@ngrx/store": "^9.0.0",
     "@ngrx/store-devtools": "^9.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "rxjs": "~6.4.0",
     "single-spa-angular": "^3.3.0",
     "systemjs-webpack-interop": "^2.0.0",
